@@ -6,7 +6,21 @@ app.use(express.json()); // for parsing application/json
 
 // ------ WRITE YOUR SOLUTION HERE BELOW ------//
 
-// Your solution should be written here
+app.post("/signup", (req, res) => {
+  const { userHandle, password } = req.body
+
+  if (!password || !userHandle) {
+    return res.status(400).send()
+  }
+
+  if (password.length < 6 || userHandle.length < 6) {
+    return res.status(400).send()
+  }
+
+
+
+  res.status(201).send()
+})
 
 //------ WRITE YOUR SOLUTION ABOVE THIS LINE ------//
 
